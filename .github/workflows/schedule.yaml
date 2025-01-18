@@ -18,8 +18,9 @@ jobs:
           key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}      
       - name: Install bun
         uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: "1.x"
+        # https://github.com/oven-sh/setup-bun/issues/37
+        # with:
+        #  bun-version: "1.x"
       - name: Install Playwright
         run: npx playwright install --with-deps chromium
       - name: Run task
