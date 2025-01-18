@@ -18,11 +18,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - uses: actions/cache@v4
+      - name: Cache bun
+        uses: actions/cache@v4
         with:
           path: |
             ~/.bun/install/cache
-          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}      
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
       - name: Install bun
         uses: oven-sh/setup-bun@v2
         # https://github.com/oven-sh/setup-bun/issues/37
