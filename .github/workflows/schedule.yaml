@@ -1,5 +1,8 @@
 name: Schedule
 
+permissions:
+  contents: write
+
 "on":
   schedule:
     - cron: "*/5 * * * *"
