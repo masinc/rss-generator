@@ -9,14 +9,15 @@ function getBrowserPath() {
 }
 
 async function main() {
-  const executablePath = getBrowserPath();
-  if (executablePath) {
-    log.info(`Using browser at ${executablePath}`);
-  }
-
   const browser = await chromium.launch({
-    executablePath,
+    executablePath: getBrowserPath(),
   });
+
+  const browserType = browser.browserType();
+  log.info(`Browser name: ${browserType.name()}`);
+  log.info(`Browser version: ${await browser.version()}`);
+  log.info(`Browser path: ${browser.browserType().executablePath()}`);
+
   try {
     const ctx = await browser.newContext();
 
