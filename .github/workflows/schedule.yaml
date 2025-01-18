@@ -21,8 +21,9 @@ jobs:
         # https://github.com/oven-sh/setup-bun/issues/37
         # with:
         #  bun-version: "1.x"
+      - run: bun install
       - name: Install Playwright
-        run: npx playwright install --with-deps chromium
+        run: bunx playwright install --with-deps chromium
       - name: Run task
         run: bun start
       - name: Deply
