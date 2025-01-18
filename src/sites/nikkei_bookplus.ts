@@ -1,9 +1,9 @@
-import type { BrowserContext, Page } from "playwright";
-import { generateRss, type RssData, type RssItem } from "../rss";
-import * as log from "@std/log";
-import { mkdirp } from "../mkdirp";
 import * as fs from "node:fs/promises";
+import * as log from "@std/log";
+import type { BrowserContext, Page } from "playwright";
 import { getRssUrl } from ".";
+import { mkdirp } from "../mkdirp";
+import { type RssData, type RssItem, generateRss } from "../rss";
 
 export const serviceName = "nikkei-bookplus";
 

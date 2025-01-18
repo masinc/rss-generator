@@ -1,7 +1,7 @@
-import { chromium } from "playwright";
-import * as log from "@std/log";
-import { generateHtml, generators } from "./src/sites";
 import * as fs from "node:fs/promises";
+import * as log from "@std/log";
+import { chromium } from "playwright";
+import { generateHtml, generators } from "./src/sites";
 
 async function main() {
   const browser = await chromium.launch({

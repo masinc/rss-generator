@@ -1,6 +1,6 @@
+import * as marked from "marked";
 import type { BrowserContext } from "playwright";
 import * as nikkeiBookplus from "./nikkei_bookplus";
-import * as marked from "marked";
 
 export async function generateHtml(items: GenerateItem[]) {
   const md = items
