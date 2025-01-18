@@ -11,22 +11,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - uses: denoland/setup-deno@v2
-        with:
-          deno-version: "v2.x"
-      - name: Setup Deno cache
-        uses: actions/cache@v4
+      - uses: actions/cache@v4
         with:
           path: |
-            ~/.deno
-            ~/.cache/deno
-          key: ${{ runner.os }}-deno-${{ hashFiles('deno.lock') }}
-      - name: Install dependencies
-        run: deno install
+            ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}      
+      - name: Install bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.x"
       - name: Install Playwright
-        run: deno task install-playwright
+        run: npx playwright install --with-deps chromium
       - name: Run task
-        run: deno task start
+        run: bun start
       - name: Deply
         uses: peaceiris/actions-gh-pages@v4
         with:
