@@ -11,7 +11,7 @@ function getBrowserPath() {
 async function main() {
   const browser = await chromium.launch({
     executablePath: getBrowserPath(),
-    args: ["--disable-dev-shm-usage"],
+    args: ["--disable-dev-shm-usage", "--disable-gpu"],
   });
 
   const browserType = browser.browserType();
