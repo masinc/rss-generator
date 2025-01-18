@@ -1,11 +1,12 @@
 import * as fs from "node:fs/promises";
 import * as log from "@std/log";
 import type { BrowserContext, Page } from "playwright";
-import { getRssUrl } from ".";
+import { type GenerateResult, getRssUrl } from ".";
 import { mkdirp } from "../mkdirp";
 import { type RssData, type RssItem, generateRss } from "../rss";
 
-export const serviceName = "nikkei-bookplus";
+export const serviceId = "nikkei-bookplus";
+export const serviceTitle = "日経BOOKプラス";
 
 async function fetch({
   url,
@@ -69,8 +70,8 @@ export async function generate({
 }: {
   ctx: BrowserContext;
   destDir: string;
-}) {
-  const outputDir = `${destDir}/${serviceName}`;
+}): Promise<GenerateResult> {
+  const outputDir = `${destDir}/${serviceId}`;
   await mkdirp(outputDir);
 
   const pages = [
@@ -106,7 +107,7 @@ export async function generate({
       generateItems.push({
         title: rssData.title,
         link: rssData.link,
-        rss: getRssUrl(`${serviceName}/${filename}`),
+        rss: getRssUrl(filename),
       });
     }
   } finally {
@@ -115,5 +116,8 @@ export async function generate({
 
   await Promise.all(filePrmises);
 
-  return generateItems;
+  return {
+    title: serviceTitle,
+    items: generateItems,
+  };
 }

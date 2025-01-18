@@ -2,12 +2,19 @@ import * as marked from "marked";
 import type { BrowserContext } from "playwright";
 import * as nikkeiBookplus from "./nikkei_bookplus";
 
-export async function generateHtml(items: GenerateItem[]) {
-  const md = items
-    .map((item) => {
-      return `## [${item.title}](${item.link})
-[${item.rss}](${item.rss})`;
-    })
+export async function generateHtml(services: GenerateResult[]) {
+  const md = services
+    .map(
+      (svc) => `# ${svc.title}
+
+${svc.items
+  .map(
+    (item) => `## [${item.title}](${item.link})
+
+[${item.rss}](${item.rss})`
+  )
+  .join("\n")}`
+    )
     .join("\n");
 
   return await marked.parse(md);
@@ -19,7 +26,7 @@ export function getRssUrl(filePath: string) {
 
 export const generators = [
   {
-    name: nikkeiBookplus.serviceName,
+    id: nikkeiBookplus.serviceId,
     generate: nikkeiBookplus.generate,
   },
 ];
@@ -30,7 +37,12 @@ export interface GenerateItem {
   rss: string;
 }
 
+export interface GenerateResult {
+  title: string;
+  items: GenerateItem[];
+}
+
 export type GenerateFunction = (args: {
   ctx: BrowserContext;
   destDir: string;
-}) => Promise<GenerateItem[]>;
+}) => Promise<GenerateResult>;

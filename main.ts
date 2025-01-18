@@ -13,21 +13,21 @@ async function main() {
   log.info(`Browser version: ${await browser.version()}`);
   log.info(`Browser path: ${browser.browserType().executablePath()}`);
 
-  const items = [];
+  const services = [];
 
   try {
     const ctx = await browser.newContext();
 
-    for await (const { name, generate } of generators) {
+    for await (const { id: name, generate } of generators) {
       log.info(`Generating ${name}`);
-      items.push(await generate({ ctx, destDir: "./dist" }));
+      services.push(await generate({ ctx, destDir: "./dist" }));
     }
   } finally {
     await browser.close();
   }
 
   log.info("Generating index.html");
-  const html = await generateHtml(items.flat());
+  const html = await generateHtml(services);
   await fs.writeFile("./dist/index.html", html);
 }
 
