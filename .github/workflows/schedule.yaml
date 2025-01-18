@@ -7,6 +7,9 @@ permissions:
   schedule:
     # every 6 hours
     - cron: "0 */6 * * *"
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
