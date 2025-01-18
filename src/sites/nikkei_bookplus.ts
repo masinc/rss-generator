@@ -1,6 +1,7 @@
 import type { BrowserContext, Page } from "playwright";
 import { generateRss, type RssData, type RssItem } from "../rss";
 import * as log from "@std/log";
+import { mkdirp } from "../mkdirp";
 import * as fs from "node:fs/promises";
 
 async function fetch({
@@ -67,9 +68,7 @@ export async function generate({
   destDir: string;
 }) {
   const outputDir = `${destDir}/nikkei-bookplus`;
-  if (!(await fs.stat(destDir)).isDirectory()) {
-    await fs.mkdir(outputDir, { recursive: true });
-  }
+  await mkdirp(outputDir);
 
   const pages = [
     {
