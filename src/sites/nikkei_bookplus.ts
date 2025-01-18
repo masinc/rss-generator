@@ -49,9 +49,10 @@ async function fetch({
     log.debug({ timeElm: !!timeElm, time });
 
     if (link && title && time) {
+      const resolvedLink = new URL(link, url).href;
       item.push({
         title,
-        link,
+        link: resolvedLink,
         pubDate: new Date(time),
       });
     }
