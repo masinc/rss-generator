@@ -100,19 +100,23 @@ export async function generate({
 
   try {
     for await (const { filename, url } of pages) {
-      const destPath = `${outputDir}/${filename}`;
+      try {
+        const destPath = `${outputDir}/${filename}`;
 
-      const rssData = await fetch({ url, page });
-      const rss = generateRss(rssData);
-
-      log.info(`Writing ${destPath}`);
-      filePrmises.push(fs.writeFile(destPath, rss));
-
-      generateItems.push({
-        title: rssData.title,
-        link: rssData.link,
-        rss: getRssUrl(filename),
-      });
+        const rssData = await fetch({ url, page });
+        const rss = generateRss(rssData);
+  
+        log.info(`Writing ${destPath}`);
+        filePrmises.push(fs.writeFile(destPath, rss));
+  
+        generateItems.push({
+          title: rssData.title,
+          link: rssData.link,
+          rss: getRssUrl(filename),
+        });  
+      } catch (err) {
+        log.error(err);
+      }
     }
   } finally {
     await page.close();
