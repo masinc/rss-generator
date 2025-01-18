@@ -1,0 +1,26 @@
+{
+  "name": "rss-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.ts",
+  "scripts": {
+    "start": "bun run main.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "masinc",
+  "license": "MIT",
+  "dependencies": {
+    "@libs/xml": "npm:@jsr/libs__xml@^6.0.4",
+    "@std/log": "npm:@jsr/std__log",
+    "playwright": "^1.49.1",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

@@ -1,7 +1,8 @@
-import { assertEquals } from "@std/assert";
-import { RssData, RssItem, generateRss } from "./rss.ts";
+import { expect, test } from "bun:test";
 
-Deno.test("generateRss", () => {
+import { type RssData, generateRss } from "./rss";
+
+test("generateRss", () => {
   const data: RssData = {
     title: "Example Feed",
     description: "An example RSS feed",
@@ -23,8 +24,7 @@ Deno.test("generateRss", () => {
 
   const actual = generateRss(data);
 
-  assertEquals(
-    actual,
+  expect(actual).toBe(
     `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" encoding="UTF-8">
   <channel>

@@ -1,6 +1,7 @@
-import { BrowserContext, Page } from "playwright";
-import { generateRss, RssData, RssItem } from "../rss.ts";
+import type { BrowserContext, Page } from "playwright";
+import { generateRss, type RssData, type RssItem } from "../rss";
 import * as log from "@std/log";
+import * as fs from "node:fs/promises";
 
 async function fetch({
   url,
@@ -66,7 +67,9 @@ export async function generate({
   destDir: string;
 }) {
   const outputDir = `${destDir}/nikkei-bookplus`;
-  await Deno.mkdir(outputDir, { recursive: true });
+  if (!(await fs.stat(destDir)).isDirectory()) {
+    await fs.mkdir(outputDir, { recursive: true });
+  }
 
   const pages = [
     {
@@ -91,7 +94,8 @@ export async function generate({
     for await (const { file, url } of pages) {
       const rssData = await fetch({ url, page });
       const rss = generateRss(rssData);
-      filePrmises.push(Deno.writeTextFile(file, rss));
+      log.info(`Writing ${file}`);
+      filePrmises.push(fs.writeFile(file, rss));
     }
   } finally {
     await page.close();

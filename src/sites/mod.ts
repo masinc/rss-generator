@@ -1,4 +1,4 @@
-import { generate as generateNikkeiBookplus } from "./nikkei_bookplus.ts";
+import { generate as generateNikkeiBookplus } from "./nikkei_bookplus";
 
 export const generators = [
   {

@@ -1,16 +1,9 @@
 import { chromium } from "playwright";
 import * as log from "@std/log";
-import { generators } from "./src/sites/mod.ts";
-
-function getBrowserPath() {
-  if (Deno.env.get("BROWSER")) {
-    return Deno.env.get("BROWSER");
-  }
-}
+import { generators } from "./src/sites/mod";
 
 async function main() {
   const browser = await chromium.launch({
-    executablePath: getBrowserPath(),
     args: ["--disable-dev-shm-usage", "--disable-gpu", "--single-process"],
   });
 
@@ -30,10 +23,8 @@ async function main() {
     await browser.close();
   }
 }
-// Learn more at https://docs.deno.com/runtime/manual/examples/module_metadata#concepts
-if (import.meta.main) {
-  main().catch((err) => {
-    console.error(err);
-    Deno.exit(1);
-  });
-}
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
