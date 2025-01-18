@@ -21,6 +21,8 @@ jobs:
             ~/.deno
             ~/.cache/deno
           key: ${{ runner.os }}-deno-${{ hashFiles('**/deps.ts') }}
+      - name: Install dependencies
+        run: install
       - name: Install Playwright
         run: deno task install-playwright
       - name: Run task
