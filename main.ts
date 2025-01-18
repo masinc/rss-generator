@@ -1,6 +1,6 @@
 import { chromium } from "playwright";
 import * as log from "@std/log";
-import { generateHtml, generators } from "./src/sites/mod";
+import { generateHtml, generators } from "./src/sites";
 import * as fs from "node:fs/promises";
 
 async function main() {

@@ -3,7 +3,7 @@ import { generateRss, type RssData, type RssItem } from "../rss";
 import * as log from "@std/log";
 import { mkdirp } from "../mkdirp";
 import * as fs from "node:fs/promises";
-import { getRssUrl } from "./mod";
+import { getRssUrl } from ".";
 
 export const serviceName = "nikkei-bookplus";
 
