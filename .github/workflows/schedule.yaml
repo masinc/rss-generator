@@ -20,7 +20,7 @@ jobs:
           path: |
             ~/.deno
             ~/.cache/deno
-          key: ${{ runner.os }}-deno-${{ hashFiles('**/deps.ts') }}
+          key: ${{ runner.os }}-deno-${{ hashFiles('deno.lock') }}
       - name: Install dependencies
         run: deno install
       - name: Install Playwright
