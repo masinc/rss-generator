@@ -50,10 +50,13 @@ async function fetch({
 
     if (link && title && time) {
       const resolvedLink = new URL(link, url).href;
+      const pubDate = new Date(time);
+      log.debug({ title, link: resolvedLink, pubDate });
+
       item.push({
         title,
         link: resolvedLink,
-        pubDate: new Date(time),
+        pubDate: pubDate,
       });
     }
   }
