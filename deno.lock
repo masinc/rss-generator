@@ -10,6 +10,7 @@
     "jsr:@std/io@0.225": "0.225.0",
     "jsr:@std/log@~0.224.13": "0.224.13",
     "npm:@types/node@*": "22.5.4",
+    "npm:playwright@*": "1.49.1",
     "npm:playwright@^1.49.1": "1.49.1"
   },
   "jsr": {
