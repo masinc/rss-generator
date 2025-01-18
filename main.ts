@@ -3,26 +3,19 @@ import * as log from "@std/log";
 import { generators } from "./src/sites/mod.ts";
 
 function getBrowserPath() {
-  const paths = [
-    "/usr/bin/google-chrome-stable",
-    "/usr/bin/google-chrome",
-    "/usr/bin/chromium",
-    "/usr/bin/chromium-browser",
-  ];
-
-  for (const path of paths) {
-    try {
-      Deno.statSync(path);
-      return path;
-    } catch (_err) {
-      continue;
-    }
+  if (Deno.env.get("BROWSER")) {
+    return Deno.env.get("BROWSER");
   }
 }
 
 async function main() {
+  const executablePath = getBrowserPath();
+  if (executablePath) {
+    log.info(`Using browser at ${executablePath}`);
+  }
+
   const browser = await chromium.launch({
-    executablePath: getBrowserPath(),
+    executablePath,
   });
   try {
     const ctx = await browser.newContext();
