@@ -3,6 +3,9 @@ import { generateRss, type RssData, type RssItem } from "../rss";
 import * as log from "@std/log";
 import { mkdirp } from "../mkdirp";
 import * as fs from "node:fs/promises";
+import { getRssUrl } from "./mod";
+
+export const serviceName = "nikkei-bookplus";
 
 async function fetch({
   url,
@@ -67,38 +70,50 @@ export async function generate({
   ctx: BrowserContext;
   destDir: string;
 }) {
-  const outputDir = `${destDir}/nikkei-bookplus`;
+  const outputDir = `${destDir}/${serviceName}`;
   await mkdirp(outputDir);
 
   const pages = [
     {
-      file: `${outputDir}/business.xml`,
+      filename: "business.xml",
       url: "https://bookplus.nikkei.com/business/",
     },
     {
-      file: `${outputDir}/technology.xml`,
+      filename: "technology.xml",
       url: "https://bookplus.nikkei.com/technology/",
     },
     {
-      file: `${outputDir}/life.xml`,
+      filename: "life.xml",
       url: "https://bookplus.nikkei.com/life/",
     },
   ];
 
   const filePrmises = [];
+  const generateItems = [];
 
   const page = await ctx.newPage();
 
   try {
-    for await (const { file, url } of pages) {
+    for await (const { filename, url } of pages) {
+      const destPath = `${outputDir}/${filename}`;
+
       const rssData = await fetch({ url, page });
       const rss = generateRss(rssData);
-      log.info(`Writing ${file}`);
-      filePrmises.push(fs.writeFile(file, rss));
+
+      log.info(`Writing ${destPath}`);
+      filePrmises.push(fs.writeFile(destPath, rss));
+
+      generateItems.push({
+        title: rssData.title,
+        link: rssData.link,
+        rss: getRssUrl(`${serviceName}/${filename}`),
+      });
     }
   } finally {
     await page.close();
   }
 
   await Promise.all(filePrmises);
+
+  return generateItems;
 }

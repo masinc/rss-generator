@@ -1,6 +1,7 @@
 import { chromium } from "playwright";
 import * as log from "@std/log";
-import { generators } from "./src/sites/mod";
+import { generateHtml, generators } from "./src/sites/mod";
+import * as fs from "node:fs/promises";
 
 async function main() {
   const browser = await chromium.launch({
@@ -12,16 +13,22 @@ async function main() {
   log.info(`Browser version: ${await browser.version()}`);
   log.info(`Browser path: ${browser.browserType().executablePath()}`);
 
+  const items = [];
+
   try {
     const ctx = await browser.newContext();
 
     for await (const { name, generate } of generators) {
       log.info(`Generating ${name}`);
-      await generate({ ctx, destDir: "./dist" });
+      items.push(await generate({ ctx, destDir: "./dist" }));
     }
   } finally {
     await browser.close();
   }
+
+  log.info("Generating index.html");
+  const html = await generateHtml(items.flat());
+  await fs.writeFile("./dist/index.html", html);
 }
 
 await main();

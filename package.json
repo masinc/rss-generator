@@ -13,6 +13,7 @@
   "dependencies": {
     "@libs/xml": "npm:@jsr/libs__xml@^6.0.4",
     "@std/log": "npm:@jsr/std__log",
+    "marked": "^15.0.6",
     "playwright": "^1.49.1",
     "winston": "^3.17.0"
   },
