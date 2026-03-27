@@ -4,6 +4,46 @@
     <title>テクノロジー | 日経BOOKプラス</title>
     <link>https://bookplus.nikkei.com/technology/</link>
     <item>
+      <title>はじめに：『仕様駆動開発 実践入門　AIで実現する開発方法論』</title>
+      <link>https://bookplus.nikkei.com/atcl/column/032900009/031901230/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>はじめに：『Microsoft 365 Copilot活用大全』</title>
+      <link>https://bookplus.nikkei.com/atcl/column/032900009/031901232/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>はじめに：『テクノロジカル・リパブリック　国家、軍事力、テクノロジーの未来』</title>
+      <link>https://bookplus.nikkei.com/atcl/column/032900009/031201221/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>はじめに：『Copilotエージェントの教科書　AIによる業務自動化の大本命』</title>
+      <link>https://bookplus.nikkei.com/atcl/column/032900009/031601226/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>タネンバウム教授の設計哲学が分かる名著『モダンオペレーティングシステム 第5版』</title>
+      <link>https://bookplus.nikkei.com/atcl/column/041500053/031800494/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>はじめに：『創って学ぶCPUの基本　3bitプロセッサを設計しながらゼロから仕組みを理解する』</title>
+      <link>https://bookplus.nikkei.com/atcl/column/032900009/021901203/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>秋田純一が推す「コンピューターの頭脳＝CPUについてスッキリできる本」</title>
+      <link>https://bookplus.nikkei.com/atcl/column/041100040/021400067/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>暗号資産（仮想通貨）の業界地図2026　トランプ米政権の業界振興策に注目</title>
+      <link>https://bookplus.nikkei.com/atcl/column/020500658/020500023/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>キャッシュレス決済の業界地図2026　個人向け金融サービス、競争激化</title>
       <link>https://bookplus.nikkei.com/atcl/column/020500658/020500022/</link>
       <pubDate>Thu, 26 Mar 2026 00:00:00 GMT</pubDate>
@@ -12,46 +52,6 @@
       <title>伊藤直也が通った、技術の「土台」となる3冊</title>
       <link>https://bookplus.nikkei.com/atcl/column/070300541/030400010/</link>
       <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>フィンテックの業界地図2026　大手銀行による再編が加速</title>
-      <link>https://bookplus.nikkei.com/atcl/column/020500658/020500021/</link>
-      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>マーサー　成功するには専門性よりも「知識の幅」や柔軟性が重要</title>
-      <link>https://bookplus.nikkei.com/atcl/column/052400072/031300094/</link>
-      <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>萩原学「ネットワークは複雑、だからこそ図解も実務も面白い」</title>
-      <link>https://bookplus.nikkei.com/atcl/column/011300641/031000007/</link>
-      <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>ビッグデータの業界地図2026　AIエージェントで成長期待</title>
-      <link>https://bookplus.nikkei.com/atcl/column/020500658/020500020/</link>
-      <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>「ビジネス書グランプリ」グロービス経営大学院賞『アフターAI』はなぜ選ばれたか</title>
-      <link>https://bookplus.nikkei.com/atcl/column/030600670/031100003/</link>
-      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>『インフラ崩壊　老朽化する日本を救う「省インフラ」』を編集者が解説</title>
-      <link>https://bookplus.nikkei.com/atcl/column/111800158/022400103/</link>
-      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>メタバースの業界地図2026　廉価版のXR端末で利用者拡大なるか</title>
-      <link>https://bookplus.nikkei.com/atcl/column/020500658/020500019/</link>
-      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>三菱自動車が日産にPHEV供給、実を結ぶ電動化戦略　異例のHEV短期開発</title>
-      <link>https://bookplus.nikkei.com/atcl/column/122400630/012200010/</link>
-      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>
 </rss>
